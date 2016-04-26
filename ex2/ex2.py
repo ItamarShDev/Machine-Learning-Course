@@ -4,7 +4,10 @@ from pylab import *
 import copy
 
 def plot():
-    """Will show plot eveytime with the selected points. Uses global variables"""
+    """
+    Show the Plot and Refresh it
+    Thanks to Alon Shmilo!
+    """
     # plt.title(string)
     plt.xlabel('X1')
     plt.ylabel('X2')
@@ -24,6 +27,12 @@ w = [0,0,0.05]
 old_w = [0,0,0]
 count = 0
 if __name__ == "__main__":
+    """
+    This program mimics the neurons learning style
+    This is done by calculating weights to each input to get the wanted output
+    The program works until the weights stops to change
+    At each step a curve will appear, presenting the current state
+    """
     file = open("results.txt", 'w+')
     file.write("X0|X1|X2|Z|W0|W1|W2|C0|C1|C2|S |D |W0|W1|W2|\n")
     while(True):
