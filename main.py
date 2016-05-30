@@ -216,8 +216,6 @@ def update_params(layers, param_grads, learning_rate):
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 def loadImagesByList(file_pattern):
     image_list = map(Image.open, glob.glob(file_pattern))
-    print type(image_list)
-    print image_list
     imSizeVector = image_list[0].size[0] * image_list[0].size[1]
     images = np.zeros([len(image_list), imSizeVector])
     for idx, im in enumerate(image_list):
@@ -342,12 +340,12 @@ class Run():
             loop = 1
         if configuration is 2:
             self.rate = 0.4
-            self.batch_size *= 5
+            self.batch_size *= 2
             self.learning_rate = 0.1
             loop = 4
         if configuration is 3:
             self.rate = 0.6
-            self.batch_size *= 6
+            self.batch_size *= 4
             self.learning_rate = 0.4
             loop = 10
             # Add first hidden layer
