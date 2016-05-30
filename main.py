@@ -129,6 +129,8 @@ class SoftmaxOutputLayer(Layer):
 
     def get_cost(self, Y, T):
         """Return the cost at the output of this output layer."""
+        print Y.shape
+        print T.shape
         return - np.multiply(T, np.log(Y)).sum() / Y.shape[0]
 
 
@@ -305,7 +307,7 @@ def load_cifar():
     image_list = []
     label_list = []
     for j in range(5):
-        d = cifar('cifar-10-batches-py/data_batch_' + str(j + 1))
+        d = cifar('cifar-10-batches-py\\data_batch_' + str(j + 1))
         x = d['data']
         y = d['labels']
         image_list.append(x)
@@ -336,10 +338,11 @@ class Run():
         self.set_method(set)
         self.configuration = self.set_configuration(configuration)
 
-    def set_running_mwthod(self, set, configuration):
+    def set_running_method(self, set, configuration):
         pass
 
     def set_configuration(self, configuration):
+
         if configuration is 1:
             self.rate = 0.1
             self.batch_size = 10
@@ -363,13 +366,15 @@ class Run():
             self.layers.append(LinearLayer(self.hidden_neurons_1, self.hidden_neurons_2, self.rate))
             self.layers.append(LogisticLayer())
         # Add output layer
-        self.layers.append(LinearLayer(self.hidden_neurons_2, self.T_train.shape[1], self.rate))
+        self.layers.append(LinearLayer(self.hidden_neurons_2, self.T_train.shape[0], self.rate))
         self.layers.append(SoftmaxOutputLayer())
 
     def set_method(self, set):
+        # self.pos = 1
         if set is 1:
             self.X_train, self.T_train, self.X_validation, self.T_validation, self.X_test, self.T_test = get_splitted_data()
         if set is 2:
+            # self.pos = 0
             self.X_train, self.T_train, self.X_validation, self.T_validation, self.X_test, self.T_test = load_cifar()
         if set is 3:
             self.X_validation, self.X_train, self.T_validation, self.T_train, self.X_test, self.T_test = scikit()
