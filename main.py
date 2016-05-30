@@ -360,7 +360,7 @@ class Run():
             self.layers.append(LinearLayer(self.hidden_neurons_1, self.hidden_neurons_2, self.rate))
             self.layers.append(LogisticLayer())
         # Add output layer
-        self.layers.append(LinearLayer(self.hidden_neurons_2, self.T_train.shape[0], self.rate))
+        self.layers.append(LinearLayer(self.hidden_neurons_2, self.T_train.shape[1], self.rate))
         self.layers.append(SoftmaxOutputLayer())
 
     def set_method(self, set):
