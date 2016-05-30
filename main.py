@@ -216,6 +216,8 @@ def update_params(layers, param_grads, learning_rate):
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 def loadImagesByList(file_pattern):
     image_list = map(Image.open, glob.glob(file_pattern))
+    print type(image_list)
+    print image_list
     imSizeVector = image_list[0].size[0] * image_list[0].size[1]
     images = np.zeros([len(image_list), imSizeVector])
     for idx, im in enumerate(image_list):
@@ -228,13 +230,11 @@ def loadImages():
     # Medical images
     OK_files_pattern = '*OK*axial.png'
     Cyst_files_pattern = '*Cyst*axial.png'
-
     # ok images
     OK_images = loadImagesByList(OK_files_pattern)
 
     # Cyst image
     Cyst_images = loadImagesByList(Cyst_files_pattern)
-
     # concatenate the two types
     image_class = np.concatenate((np.zeros([OK_images.shape[0], 1]),
                                   np.ones([Cyst_images.shape[0], 1])))
@@ -242,9 +242,17 @@ def loadImages():
     all_images = np.concatenate((OK_images, Cyst_images))
     return all_images, image_class
 
+# CIFAR-10 data
+def cifar(file):
+    import cPickle
+    fo = open(file, 'rb')
+    dict = cPickle.load(fo)
+    fo.close()
+    return dict
+
 
 # sklearn images
-def get_splitted_data():
+def get_splitted_data(set):
     # load raw data
     (all_images, image_class) = loadImages()
 
@@ -260,6 +268,7 @@ def get_splitted_data():
     X_train -= mean_image
     X_val -= mean_image
     X_test -= mean_image
+
     return X_train, y_train, X_val, y_val, X_test, y_test
 
     # return X_train, y_train.T[0], X_val, y_val.T[0], X_test, y_test.T[0]
@@ -286,51 +295,40 @@ def scikit():
     X_validation, X_test, T_validation, T_test = cross_validation.train_test_split(
         X_test, T_test, test_size=0.5
     )
+
     return X_train, X_test, T_train, T_test, X_validation, T_validation
 
-
-# CIFAR-10 data
-def cifar(file):
-    import cPickle
-    fo = open(file, 'rb')
-    dict = cPickle.load(fo)
-    fo.close()
-    return dict
 
 
 def load_cifar():
     image_list = []
     label_list = []
-    for j in range(5):
-        d = cifar('cifar-10-batches-py\\data_batch_' + str(j + 1))
-        x = d['data']
-        y = d['labels']
-        image_list.append(x)
-        label_list.append(y)
-    d = cifar('cifar-10-batches-py/test_batch')
-    image_list.append(d['data'])
-    label_list.append(d['labels'])
+    d = cifar('cifar-10-batches-py\\data_batch_1')
+    d_test = cifar('cifar-10-batches-py/test_batch')
+    image_class = np.concatenate((np.zeros([d['data'].shape[0], 1]),
+                                  np.ones([d_test['data'].shape[0], 1])))
+    # image_class = np.concatenate(d['data'])
+    all_images = np.concatenate((d['data'], d_test['data']))
+    # test_label_list = d['labels']
 
-    all_images = np.concatenate((image_list, label_list)) / np.float32(255)
-    image_class = np.concatenate(label_list)
+    # all_images = np.concatenate(image_list) / np.float32(255)
+    # image_class = np.concatenate(label_list)
 
-    X_, X_test, y_, Y_test = cross_validation.train_test_split(all_images, image_class, test_size=0.20, random_state=42)
+    X_train, X_test, y_train, y_test = cross_validation.train_test_split(all_images, image_class, test_size=0.20, random_state=42)
 
-    X_train, X_val, y_train, y_val = cross_validation.train_test_split(X_, y_, test_size=0.20, random_state=42)
-
-    return X_train, y_train, X_val, y_val, X_test, Y_test
+    X_val, X_test, y_val, y_test = cross_validation.train_test_split(X_test, y_test, test_size=0.20, random_state=42)
+    return X_train, y_train, X_val, y_val, X_test, y_test
 
 
 class Run():
     def __init__(self, set, configuration):
-        self.depth = 1
-        self.width = 1
+        self.batch_size = 5
         self.hidden_neurons_1 = 20  # Number of neurons in the first hidden-layer
         self.hidden_neurons_2 = 20  # Number of neurons in the second hidden-layer
         # Create the model
         self.layers = []  # Define a list of layers
         self.set_method(set)
-        self.configuration = self.set_configuration(configuration)
+        self.set_configuration(configuration)
 
     def set_running_method(self, set, configuration):
         pass
@@ -339,17 +337,17 @@ class Run():
 
         if configuration is 1:
             self.rate = 0.1
-            self.batch_size = 10
+            self.batch_size *= 2
             self.learning_rate = 0.04
             loop = 1
         if configuration is 2:
             self.rate = 0.4
-            self.batch_size = 25
+            self.batch_size *= 5
             self.learning_rate = 0.1
             loop = 4
         if configuration is 3:
             self.rate = 0.6
-            self.batch_size = 30
+            self.batch_size *= 6
             self.learning_rate = 0.4
             loop = 10
             # Add first hidden layer
@@ -360,17 +358,18 @@ class Run():
             self.layers.append(LinearLayer(self.hidden_neurons_1, self.hidden_neurons_2, self.rate))
             self.layers.append(LogisticLayer())
         # Add output layer
+
         self.layers.append(LinearLayer(self.hidden_neurons_2, self.T_train.shape[1], self.rate))
         self.layers.append(SoftmaxOutputLayer())
 
     def set_method(self, set):
-        # self.pos = 1
+
         if set is 1:
             self.X_train, self.T_train, self.X_validation, self.T_validation, self.X_test, self.T_test \
-                = get_splitted_data()
+                = get_splitted_data(set)
         if set is 2:
-            # self.pos = 0
-            self.X_train, self.T_train, self.X_validation, self.T_validation, self.X_test, self.T_test = load_cifar()
+            self.batch_size = 50
+            self.X_train, self.T_train, self.X_validation, self.T_validation, self.X_test, self.T_test =  load_cifar()
         if set is 3:
             self.X_validation, self.X_train, self.T_validation, self.T_train, self.X_test, self.T_test = scikit()
 
@@ -379,7 +378,7 @@ class Run():
         # create batches
         # approx 25 samples per batch
         print "learning..."
-        # number of batched
+        # number of batches
         nb_of_batches = self.X_train.shape[0] / self.batch_size
         XT_batches = zip(
             np.array_split(self.X_train, nb_of_batches, axis=0),
