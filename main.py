@@ -311,7 +311,7 @@ def load_cifar():
     image_list.append(d['data'])
     label_list.append(d['labels'])
 
-    all_images = np.concatenate(image_list) / np.float32(255)
+    all_images = np.concatenate((image_list, label_list)) / np.float32(255)
     image_class = np.concatenate(label_list)
 
     X_, X_test, y_, Y_test = cross_validation.train_test_split(all_images, image_class, test_size=0.20, random_state=42)
@@ -366,7 +366,8 @@ class Run():
     def set_method(self, set):
         # self.pos = 1
         if set is 1:
-            self.X_train, self.T_train, self.X_validation, self.T_validation, self.X_test, self.T_test = get_splitted_data()
+            self.X_train, self.T_train, self.X_validation, self.T_validation, self.X_test, self.T_test \
+                = get_splitted_data()
         if set is 2:
             # self.pos = 0
             self.X_train, self.T_train, self.X_validation, self.T_validation, self.X_test, self.T_test = load_cifar()
