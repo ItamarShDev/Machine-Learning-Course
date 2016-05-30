@@ -484,20 +484,22 @@ if __name__ == "__main__":
         3: "Fast Learning Mode"
     }
     if len(sys.argv) == 3:
-        set_num = int(sys.argv[1])
-        configuration_num = int(sys.argv[2])
+        set_in = int(sys.argv[1])
+        configuration_in = int(sys.argv[2])
     else:
-        try:
-            set_num = int(input(set_str))
-            configuration_num = int(input(conf_str))
-        except:
-            print "Need Numeric Arguments"
-            raise SystemExit
+        set_in = input(set_str)
+        configuration_in = input(conf_str)
+    try:
+        set_num = int(set_in)
+        configuration_num = int(configuration_in)
+    except:
+        print "Need Numeric Arguments"
+        raise SystemExit
+
+    if set_num <= 0 or configuration_num <= 0:
+        print "wrong args"
+        raise SystemExit
 
     print "Set to Learn {0} with {1}".format(set_map[set_num], conf_map[configuration_num])
-    if set_num <= 0 or configuration_num <= 0:
-            print "wrong args"
-            raise SystemExit
-
     run = Run(set_num, configuration_num)
     run.learn()
