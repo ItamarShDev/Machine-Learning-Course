@@ -340,12 +340,12 @@ class Run():
             loop = 1
         if configuration is 2:
             self.rate = 0.4
-            self.batch_size *= 2
+            self.batch_size *= 5
             self.learning_rate = 0.1
             loop = 4
         if configuration is 3:
             self.rate = 0.6
-            self.batch_size *= 4
+            self.batch_size *= 8
             self.learning_rate = 0.4
             loop = 10
             # Add first hidden layer
