@@ -70,7 +70,7 @@ class Layer(object):
 class LinearLayer(Layer):
     """The linear layer performs a linear transformation to its input"""
 
-    def __init__(self, n_in, n_out, rate = 0.4):
+    def __init__(self, n_in, n_out, rate=0.4):
         """Initiate hidden layer parameters"""
         self.W = np.random.randn(n_in, n_out) * rate
         self.b = np.zeros(n_out)
@@ -129,8 +129,6 @@ class SoftmaxOutputLayer(Layer):
 
     def get_cost(self, Y, T):
         """Return the cost at the output of this output layer."""
-        print Y.shape
-        print T.shape
         return - np.multiply(T, np.log(Y)).sum() / Y.shape[0]
 
 
@@ -257,9 +255,6 @@ def get_splitted_data():
     X_train, X_val, y_train, y_val = \
         train_test_split(X_, y_, test_size=0.20, random_state=42)
 
-    print "Total:", len(all_images), "Train", str(len(X_train)), ", Val:" \
-        , len(X_val), ", Test:", len(X_test)
-
     # normalize the data: subtract the mean image
     mean_image = np.mean(X_train, axis=0)
     X_train -= mean_image
@@ -323,7 +318,6 @@ def load_cifar():
 
     X_train, X_val, y_train, y_val = cross_validation.train_test_split(X_, y_, test_size=0.20, random_state=42)
 
-    print "Total: ", len(all_images), "Train", str(len(X_train)), ", Val: ", len(X_val), ",Test: ", len(X_test)
     return X_train, y_train, X_val, y_val, X_test, Y_test
 
 
@@ -469,18 +463,38 @@ class Run():
 if __name__ == "__main__":
     set_num = 0
     configuration_num = 0
+    set_str = """Choose the Set to Learn:
+        1 - Cyst and OK image
+        2 - CIFAR-10
+        3 - SK-LEARN
+        > """
+    conf_str = """Select Configuration:
+        1 - Slow Rate Learn
+        2 - Medium Rate Learn
+        3 - Fast Learning Mode
+        > """
+    set_map = {
+        1: "Cyst and OK image",
+        2: "CIFAR-10",
+        3: "SK-LEARN"
+    }
+    conf_map = {
+        1: "Slow Rate Learn",
+        2: "Medium Rate Learn",
+        3: "Fast Learning Mode"
+    }
     if len(sys.argv) == 3:
         set_num = int(sys.argv[1])
         configuration_num = int(sys.argv[2])
     else:
         try:
-            set_num = int(input("enter set number:"))
-            configuration_num = int(input("enter configuration number:"))
+            set_num = int(input(set_str))
+            configuration_num = int(input(conf_str))
         except:
             print "Need Numeric Arguments"
             raise SystemExit
 
-        print set_num, configuration_num
+        print "Set to Learn {0} with {1}".format(set_map[set_num], conf_map[configuration_num])
         if set_num <= 0 or configuration_num <= 0:
             print "wrong args"
             raise SystemExit
