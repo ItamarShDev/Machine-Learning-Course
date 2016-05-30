@@ -340,16 +340,16 @@ class Run():
         if configuration is 1:
             self.rate = 0.1
             self.batch_size = 10
-            self.learning_rate = 0.1
+            self.learning_rate = 0.04
             loop = 1
         if configuration is 2:
             self.rate = 0.4
             self.batch_size = 25
-            self.learning_rate = 0.04
+            self.learning_rate = 0.1
             loop = 4
         if configuration is 3:
-            self.rate = 0.9
-            self.batch_size = 50
+            self.rate = 0.6
+            self.batch_size = 30
             self.learning_rate = 0.4
             loop = 10
             # Add first hidden layer
@@ -494,10 +494,10 @@ if __name__ == "__main__":
             print "Need Numeric Arguments"
             raise SystemExit
 
-        print "Set to Learn {0} with {1}".format(set_map[set_num], conf_map[configuration_num])
-        if set_num <= 0 or configuration_num <= 0:
+    print "Set to Learn {0} with {1}".format(set_map[set_num], conf_map[configuration_num])
+    if set_num <= 0 or configuration_num <= 0:
             print "wrong args"
             raise SystemExit
 
-        run = Run(set_num, configuration_num)
-        run.learn()
+    run = Run(set_num, configuration_num)
+    run.learn()
