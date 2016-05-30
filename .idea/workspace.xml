@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea9f9186-7956-4ebd-8566-79eab435422c" name="Default" comment="" />
+    <list default="true" id="8f8aae2f-5a76-4258-a682-68ecdceda2fa" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ex3-code.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/תרגיל 3.PDF" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ex3.iml" afterPath="$PROJECT_DIR$/.idea/ex3.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="ex3.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -14,7 +21,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/ex3$ex3_code.coverage" NAME="ex3-code Coverage Results" MODIFIED="1464512198176" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ex3$ex3_code.coverage" NAME="ex3-code Coverage Results" MODIFIED="1464607793974" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -24,39 +31,24 @@
     <favorites_list name="ex3" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ex3-code.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ex3-code.py">
+    <leaf>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="386" column="23" selection-start-line="386" selection-start-column="23" selection-end-line="386" selection-end-column="23" />
+            <state relative-caret-position="132">
+              <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-248">
+              <caret line="451" column="18" selection-start-line="451" selection-start-column="18" selection-end-line="451" selection-end-column="18" />
               <folding>
                 <element signature="e#199#210#0" expanded="true" />
-                <element signature="e#557#587#0" expanded="false" />
-                <element signature="e#610#669#0" expanded="false" />
-                <element signature="e#1034#1235#0" expanded="false" />
-                <element signature="e#1034#1217#1" expanded="false" />
-                <element signature="e#1569#1659#0" expanded="false" />
-                <element signature="e#1728#2099#0" expanded="false" />
-                <element signature="e#1728#2086#1" expanded="false" />
-                <element signature="e#2607#2799#0" expanded="false" />
-                <element signature="e#4140#4241#1" expanded="false" />
-                <element signature="e#4280#4352#0" expanded="false" />
-                <element signature="e#4421#4511#0" expanded="false" />
-                <element signature="e#4940#5329#1" expanded="false" />
-                <element signature="e#6919#6974#0" expanded="false" />
-                <element signature="e#7168#7208#0" expanded="false" />
-                <element signature="e#8560#8764#0" expanded="false" />
-                <element signature="e#8560#8629#0" expanded="false" />
-                <element signature="e#10735#10753#0" expanded="false" />
-                <element signature="e#13248#13363#0" expanded="false" />
-                <element signature="e#13392#13439#0" expanded="false" />
-                <element signature="e#13495#13538#0" expanded="false" />
-                <element signature="e#14767#14846#0" expanded="false" />
-                <element signature="e#16334#16539#0" expanded="false" />
-                <element signature="e#16334#16400#0" expanded="false" />
-                <element signature="e#16635#16714#0" expanded="false" />
-                <element signature="e#17683#17762#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -64,10 +56,22 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/ex3-code.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
@@ -78,19 +82,18 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="-7" />
+    <option name="width" value="1197" />
+    <option name="height" value="1047" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="1" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
@@ -108,6 +111,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -116,18 +120,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ex3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ex3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="D:/My Files/Git/Machine-Learning-Course/ex3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
-    <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RunManager" selected="Python.ex3-code">
     <configuration default="false" name="ex3-code" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -136,9 +146,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Anaconda2\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="ex3" />
@@ -231,12 +241,6 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -368,53 +372,54 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ea9f9186-7956-4ebd-8566-79eab435422c" name="Default" comment="" />
-      <created>1464245582077</created>
+      <changelist id="8f8aae2f-5a76-4258-a682-68ecdceda2fa" name="Default" comment="" />
+      <created>1464604095669</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1464245582077</updated>
+      <updated>1464604095669</updated>
     </task>
+    <task id="LOCAL-00001" summary="added configurations and sets">
+      <created>1464607852450</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1464607852450</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-7" y="0" width="1197" height="1047" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.007454739" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20756757" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32864866" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23880596" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969433" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32969433" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
-  </component>
-  <component name="Vcs.Log.UiProperties">
-    <option name="RECENTLY_FILTERED_USER_GROUPS">
-      <collection />
-    </option>
-    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-      <collection />
-    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added configurations and sets" />
+    <option name="LAST_COMMIT_MESSAGE" value="added configurations and sets" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -423,252 +428,26 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/ex3-code.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#199#210#0" expanded="true" />
-            <element signature="e#557#587#0" expanded="false" />
-            <element signature="e#610#669#0" expanded="false" />
-            <element signature="e#1034#1235#0" expanded="false" />
-            <element signature="e#1034#1217#1" expanded="false" />
-            <element signature="e#1569#1659#0" expanded="false" />
-            <element signature="e#1728#2099#0" expanded="false" />
-            <element signature="e#1728#2086#1" expanded="false" />
-            <element signature="e#2607#2799#0" expanded="false" />
-            <element signature="e#4140#4241#1" expanded="false" />
-            <element signature="e#4280#4352#0" expanded="false" />
-            <element signature="e#4421#4511#0" expanded="false" />
-            <element signature="e#4940#5329#1" expanded="false" />
-            <element signature="e#6919#6974#0" expanded="false" />
-            <element signature="e#7168#7208#0" expanded="false" />
-            <element signature="e#8560#8764#0" expanded="false" />
-            <element signature="e#8560#8629#0" expanded="false" />
-            <element signature="e#10735#10753#0" expanded="false" />
-            <element signature="e#13248#13363#0" expanded="false" />
-            <element signature="e#13392#13439#0" expanded="false" />
-            <element signature="e#13495#13538#0" expanded="false" />
-            <element signature="e#14767#14846#0" expanded="false" />
-            <element signature="e#16334#16539#0" expanded="false" />
-            <element signature="e#16334#16400#0" expanded="false" />
-            <element signature="e#16635#16714#0" expanded="false" />
-            <element signature="e#17683#17762#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="152">
+          <caret line="282" column="40" selection-start-line="0" selection-start-column="0" selection-end-line="484" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ex3-code.py">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#199#210#0" expanded="true" />
-            <element signature="e#557#587#0" expanded="false" />
-            <element signature="e#610#669#0" expanded="false" />
-            <element signature="e#1034#1235#0" expanded="false" />
-            <element signature="e#1034#1217#1" expanded="false" />
-            <element signature="e#1569#1659#0" expanded="false" />
-            <element signature="e#1728#2099#0" expanded="false" />
-            <element signature="e#1728#2086#1" expanded="false" />
-            <element signature="e#2607#2799#0" expanded="false" />
-            <element signature="e#4140#4241#1" expanded="false" />
-            <element signature="e#4280#4352#0" expanded="false" />
-            <element signature="e#4421#4511#0" expanded="false" />
-            <element signature="e#4940#5329#1" expanded="false" />
-            <element signature="e#6919#6974#0" expanded="false" />
-            <element signature="e#7168#7208#0" expanded="false" />
-            <element signature="e#8560#8764#0" expanded="false" />
-            <element signature="e#8560#8629#0" expanded="false" />
-            <element signature="e#10735#10753#0" expanded="false" />
-            <element signature="e#13248#13363#0" expanded="false" />
-            <element signature="e#13392#13439#0" expanded="false" />
-            <element signature="e#13495#13538#0" expanded="false" />
-            <element signature="e#14767#14846#0" expanded="false" />
-            <element signature="e#16334#16539#0" expanded="false" />
-            <element signature="e#16334#16400#0" expanded="false" />
-            <element signature="e#16635#16714#0" expanded="false" />
-            <element signature="e#17683#17762#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="132">
+          <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ex3-code.py">
+    <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="-248">
+          <caret line="451" column="18" selection-start-line="451" selection-start-column="18" selection-end-line="451" selection-end-column="18" />
           <folding>
             <element signature="e#199#210#0" expanded="true" />
-            <element signature="e#557#587#0" expanded="false" />
-            <element signature="e#610#669#0" expanded="false" />
-            <element signature="e#1034#1235#0" expanded="false" />
-            <element signature="e#1034#1217#1" expanded="false" />
-            <element signature="e#1569#1659#0" expanded="false" />
-            <element signature="e#1728#2099#0" expanded="false" />
-            <element signature="e#1728#2086#1" expanded="false" />
-            <element signature="e#2607#2799#0" expanded="false" />
-            <element signature="e#4140#4241#1" expanded="false" />
-            <element signature="e#4280#4352#0" expanded="false" />
-            <element signature="e#4421#4511#0" expanded="false" />
-            <element signature="e#4940#5329#1" expanded="false" />
-            <element signature="e#6919#6974#0" expanded="false" />
-            <element signature="e#7168#7208#0" expanded="false" />
-            <element signature="e#8560#8764#0" expanded="false" />
-            <element signature="e#8560#8629#0" expanded="false" />
-            <element signature="e#10735#10753#0" expanded="false" />
-            <element signature="e#13248#13363#0" expanded="false" />
-            <element signature="e#13392#13439#0" expanded="false" />
-            <element signature="e#13495#13538#0" expanded="false" />
-            <element signature="e#14767#14846#0" expanded="false" />
-            <element signature="e#16334#16539#0" expanded="false" />
-            <element signature="e#16334#16400#0" expanded="false" />
-            <element signature="e#16635#16714#0" expanded="false" />
-            <element signature="e#17683#17762#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ex3-code.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#199#210#0" expanded="true" />
-            <element signature="e#557#587#0" expanded="false" />
-            <element signature="e#610#669#0" expanded="false" />
-            <element signature="e#1034#1235#0" expanded="false" />
-            <element signature="e#1034#1217#1" expanded="false" />
-            <element signature="e#1569#1659#0" expanded="false" />
-            <element signature="e#1728#2099#0" expanded="false" />
-            <element signature="e#1728#2086#1" expanded="false" />
-            <element signature="e#2607#2799#0" expanded="false" />
-            <element signature="e#4140#4241#1" expanded="false" />
-            <element signature="e#4280#4352#0" expanded="false" />
-            <element signature="e#4421#4511#0" expanded="false" />
-            <element signature="e#4940#5329#1" expanded="false" />
-            <element signature="e#6919#6974#0" expanded="false" />
-            <element signature="e#7168#7208#0" expanded="false" />
-            <element signature="e#8560#8764#0" expanded="false" />
-            <element signature="e#8560#8629#0" expanded="false" />
-            <element signature="e#10735#10753#0" expanded="false" />
-            <element signature="e#13248#13363#0" expanded="false" />
-            <element signature="e#13392#13439#0" expanded="false" />
-            <element signature="e#13495#13538#0" expanded="false" />
-            <element signature="e#14767#14846#0" expanded="false" />
-            <element signature="e#16334#16539#0" expanded="false" />
-            <element signature="e#16334#16400#0" expanded="false" />
-            <element signature="e#16635#16714#0" expanded="false" />
-            <element signature="e#17683#17762#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ex3-code.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#199#210#0" expanded="true" />
-            <element signature="e#557#587#0" expanded="false" />
-            <element signature="e#610#669#0" expanded="false" />
-            <element signature="e#1034#1235#0" expanded="false" />
-            <element signature="e#1034#1217#1" expanded="false" />
-            <element signature="e#1569#1659#0" expanded="false" />
-            <element signature="e#1728#2099#0" expanded="false" />
-            <element signature="e#1728#2086#1" expanded="false" />
-            <element signature="e#2607#2799#0" expanded="false" />
-            <element signature="e#4140#4241#1" expanded="false" />
-            <element signature="e#4280#4352#0" expanded="false" />
-            <element signature="e#4421#4511#0" expanded="false" />
-            <element signature="e#4940#5329#1" expanded="false" />
-            <element signature="e#6919#6974#0" expanded="false" />
-            <element signature="e#7168#7208#0" expanded="false" />
-            <element signature="e#8560#8764#0" expanded="false" />
-            <element signature="e#8560#8629#0" expanded="false" />
-            <element signature="e#10735#10753#0" expanded="false" />
-            <element signature="e#13248#13363#0" expanded="false" />
-            <element signature="e#13392#13439#0" expanded="false" />
-            <element signature="e#13495#13538#0" expanded="false" />
-            <element signature="e#14767#14846#0" expanded="false" />
-            <element signature="e#16334#16539#0" expanded="false" />
-            <element signature="e#16334#16400#0" expanded="false" />
-            <element signature="e#16635#16714#0" expanded="false" />
-            <element signature="e#17683#17762#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ex3-code.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#199#210#0" expanded="true" />
-            <element signature="e#557#587#0" expanded="false" />
-            <element signature="e#610#669#0" expanded="false" />
-            <element signature="e#1034#1235#0" expanded="false" />
-            <element signature="e#1034#1217#1" expanded="false" />
-            <element signature="e#1569#1659#0" expanded="false" />
-            <element signature="e#1728#2099#0" expanded="false" />
-            <element signature="e#1728#2086#1" expanded="false" />
-            <element signature="e#2607#2799#0" expanded="false" />
-            <element signature="e#4140#4241#1" expanded="false" />
-            <element signature="e#4280#4352#0" expanded="false" />
-            <element signature="e#4421#4511#0" expanded="false" />
-            <element signature="e#4940#5329#1" expanded="false" />
-            <element signature="e#6919#6974#0" expanded="false" />
-            <element signature="e#7168#7208#0" expanded="false" />
-            <element signature="e#8560#8764#0" expanded="false" />
-            <element signature="e#8560#8629#0" expanded="false" />
-            <element signature="e#10735#10753#0" expanded="false" />
-            <element signature="e#13248#13363#0" expanded="false" />
-            <element signature="e#13392#13439#0" expanded="false" />
-            <element signature="e#13495#13538#0" expanded="false" />
-            <element signature="e#14767#14846#0" expanded="false" />
-            <element signature="e#16334#16539#0" expanded="false" />
-            <element signature="e#16334#16400#0" expanded="false" />
-            <element signature="e#16635#16714#0" expanded="false" />
-            <element signature="e#17683#17762#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Anaconda2/Lib/site-packages/numpy/core/numeric.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="189" column="0" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ex3-code.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="386" column="23" selection-start-line="386" selection-start-column="23" selection-end-line="386" selection-end-column="23" />
-          <folding>
-            <element signature="e#199#210#0" expanded="true" />
-            <element signature="e#557#587#0" expanded="false" />
-            <element signature="e#610#669#0" expanded="false" />
-            <element signature="e#1034#1235#0" expanded="false" />
-            <element signature="e#1034#1217#1" expanded="false" />
-            <element signature="e#1569#1659#0" expanded="false" />
-            <element signature="e#1728#2099#0" expanded="false" />
-            <element signature="e#1728#2086#1" expanded="false" />
-            <element signature="e#2607#2799#0" expanded="false" />
-            <element signature="e#4140#4241#1" expanded="false" />
-            <element signature="e#4280#4352#0" expanded="false" />
-            <element signature="e#4421#4511#0" expanded="false" />
-            <element signature="e#4940#5329#1" expanded="false" />
-            <element signature="e#6919#6974#0" expanded="false" />
-            <element signature="e#7168#7208#0" expanded="false" />
-            <element signature="e#8560#8764#0" expanded="false" />
-            <element signature="e#8560#8629#0" expanded="false" />
-            <element signature="e#10735#10753#0" expanded="false" />
-            <element signature="e#13248#13363#0" expanded="false" />
-            <element signature="e#13392#13439#0" expanded="false" />
-            <element signature="e#13495#13538#0" expanded="false" />
-            <element signature="e#14767#14846#0" expanded="false" />
-            <element signature="e#16334#16539#0" expanded="false" />
-            <element signature="e#16334#16400#0" expanded="false" />
-            <element signature="e#16635#16714#0" expanded="false" />
-            <element signature="e#17683#17762#0" expanded="false" />
           </folding>
         </state>
       </provider>

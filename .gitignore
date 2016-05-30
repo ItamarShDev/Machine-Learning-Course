@@ -1,3 +1,7 @@
 ex1/README.pdf
 ex3/*.png
 ex3/cifar-10-batches-py/*
+.gitignore
+.idea/
+cifar-10-batches-py/
+*.png

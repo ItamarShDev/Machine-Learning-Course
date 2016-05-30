@@ -14,6 +14,9 @@ import numpy as np
 
 
 def logistic(z):
+    # prevent too small neither too high values
+    z[z > 700] = 700
+    z[z < -700] = -700
     return 1 / (1 + np.exp(-z))
 
 
@@ -67,10 +70,9 @@ class Layer(object):
 class LinearLayer(Layer):
     """The linear layer performs a linear transformation to its input"""
 
-    def __init__(self, n_in, n_out):
+    def __init__(self, n_in, n_out, rate = 0.4):
         """Initiate hidden layer parameters"""
-        self.W = np.random.randn(n_in, n_out) * 0.1
-        print self.W
+        self.W = np.random.randn(n_in, n_out) * rate
         self.b = np.zeros(n_out)
 
     def get_params_iter(self):
@@ -265,6 +267,7 @@ def get_splitted_data():
 
     # return X_train, y_train.T[0], X_val, y_val.T[0], X_test, y_test.T[0]
 
+
 # scikit data
 def scikit():
     # load the data from scikit-learn
@@ -297,6 +300,7 @@ def cifar(file):
     fo.close()
     return dict
 
+
 def load_cifar():
     image_list = []
     label_list = []
@@ -310,7 +314,7 @@ def load_cifar():
     image_list.append(d['data'])
     label_list.append(d['labels'])
 
-    all_images = np.concatenate(image_list)/np.float32(255)
+    all_images = np.concatenate(image_list) / np.float32(255)
     image_class = np.concatenate(label_list)
 
     X_, X_test, y_, Y_test = cross_validation.train_test_split(all_images, image_class, test_size=0.20, random_state=42)
@@ -318,9 +322,137 @@ def load_cifar():
     X_train, X_val, y_train, y_val = cross_validation.train_test_split(X_, y_, test_size=0.20, random_state=42)
 
     print "Total: ", len(all_images), "Train", str(len(X_train)), ", Val: ", len(X_val), ",Test: ", len(X_test)
-    print "T_train length", len(y_train.shape),
     return X_train, y_train, X_val, y_val, X_test, Y_test
-    # # Normalize the data: subtract the mean image
+
+
+class Run():
+    def __init__(self, set, configuration):
+        self.depth = 1
+        self.width = 1
+        self.hidden_neurons_1 = 20  # Number of neurons in the first hidden-layer
+        self.hidden_neurons_2 = 20  # Number of neurons in the second hidden-layer
+        # Create the model
+        self.layers = []  # Define a list of layers
+        self.set_method(set)
+        self.configuration = self.set_configuration(configuration)
+
+    def set_running_mwthod(self, set, configuration):
+        pass
+
+    def set_configuration(self, configuration):
+        if configuration is 1:
+            self.rate = 0.1
+            self.batch_size = 10
+            self.learning_rate = 0.1
+            loop = 1
+        if configuration is 2:
+            self.rate = 0.4
+            self.batch_size = 25
+            self.learning_rate = 0.04
+            loop = 4
+        if configuration is 3:
+            self.rate = 0.9
+            self.batch_size = 50
+            self.learning_rate = 0.4
+            loop = 10
+            # Add first hidden layer
+        self.layers.append(LinearLayer(self.X_train.shape[1], self.hidden_neurons_1, self.rate))
+        self.layers.append(LogisticLayer())
+        for i in range(0, loop):
+            # Add second hidden layer
+            self.layers.append(LinearLayer(self.hidden_neurons_1, self.hidden_neurons_2, self.rate))
+            self.layers.append(LogisticLayer())
+        # Add output layer
+        self.layers.append(LinearLayer(self.hidden_neurons_2, self.T_train.shape[1], self.rate))
+        self.layers.append(SoftmaxOutputLayer())
+
+    def set_method(self, set):
+        if set is 1:
+            self.X_train, self.T_train, self.X_validation, self.T_validation, self.X_test, self.T_test = get_splitted_data()
+        if set is 2:
+            self.X_train, self.T_train, self.X_validation, self.T_validation, self.X_test, self.T_test = load_cifar()
+        if set is 3:
+            self.X_validation, self.X_train, self.T_validation, self.T_train, self.X_test, self.T_test = scikit()
+
+    def learn(self):
+
+        # create batches
+        # approx 25 samples per batch
+        print "learning..."
+        # number of batched
+        nb_of_batches = self.X_train.shape[0] / self.batch_size
+        XT_batches = zip(
+            np.array_split(self.X_train, nb_of_batches, axis=0),
+            np.array_split(self.T_train, nb_of_batches, axis=0)
+        )
+
+        # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        # train the network
+        # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        # Perform backpropagation
+
+        # initalize some lists to store the cost for future analysis
+        minibatch_costs = []
+        training_costs = []
+        validation_costs = []
+
+        max_nb_of_iterations = 300  # Train for a maximum of 300 iterations
+
+        # Train for the maximum number of iterations
+        for iteration in range(max_nb_of_iterations):
+            for X, T in XT_batches:  # For each minibatch sub-iteration
+                activations = forward_step(X, self.layers)  # Get the activations
+                minibatch_cost = self.layers[-1].get_cost(activations[-1], T)  # Get cost
+                minibatch_costs.append(minibatch_cost)
+                param_grads = backward_step(activations, T, self.layers)  # Get the gradients
+                update_params(self.layers, param_grads, self.learning_rate)  # Update the parameters
+            # Get full training cost for future analysis (plots)
+            activations = forward_step(self.X_train, self.layers)
+            train_cost = self.layers[-1].get_cost(activations[-1], self.T_train)
+            training_costs.append(train_cost)
+            # Get full validation cost
+            activations = forward_step(self.X_validation, self.layers)
+            validation_cost = self.layers[-1].get_cost(activations[-1], self.T_validation)
+            validation_costs.append(validation_cost)
+            if len(validation_costs) > 3:
+                # Stop training if the cost on the validation set doesn't decrease
+                #  for 3 iterations
+                if validation_costs[-1] >= validation_costs[-2] >= validation_costs[-3]:
+                    break
+
+        nb_of_iterations = iteration + 1  # The number of iterations that have been executed
+
+        # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        # plot the network performance
+        # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        # Plot the minibatch, full training set, and validation costs
+        minibatch_x_inds = np.linspace(0, nb_of_iterations, num=nb_of_iterations * nb_of_batches)
+        iteration_x_inds = np.linspace(1, nb_of_iterations, num=nb_of_iterations)
+
+        # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        # Get results of test data
+        # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        y_true = np.argmax(self.T_test, axis=1)  # Get the target outputs
+        activations = forward_step(self.X_test, self.layers)  # Get activation of test samples
+        y_pred = np.argmax(activations[-1], axis=1)  # Get the predictions made by the network
+        test_accuracy = metrics.accuracy_score(y_true, y_pred)  # Test set accuracy
+        print('The accuracy on the test set is {:.2f}'.format(test_accuracy))
+        # Plot the cost over the iterations
+        plt.plot(minibatch_x_inds, minibatch_costs, 'k-', linewidth=0.5, label='cost minibatches')
+        plt.plot(iteration_x_inds, training_costs, 'r-', linewidth=2, label='cost full training set')
+        plt.plot(iteration_x_inds, validation_costs, 'b-', linewidth=3, label='cost validation set')
+        # Add labels to the plot
+        plt.xlabel('iteration')
+        plt.ylabel('$\\xi$', fontsize=15)
+        plt.title('Decrease of cost over backprop iteration')
+        plt.legend()
+        x1, x2, y1, y2 = plt.axis()
+        plt.axis((0, nb_of_iterations, 0, 2.5))
+        plt.grid()
+        plt.show()
+
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Define the network
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -340,107 +472,13 @@ if __name__ == "__main__":
             set_num = int(input("enter set number:"))
             configuration_num = int(input("enter configuration number:"))
         except:
+            print "Need Numeric Arguments"
+            raise SystemExit
+
+        print set_num, configuration_num
+        if set_num <= 0 or configuration_num <= 0:
             print "wrong args"
             raise SystemExit
-    if set_num <= 0 or configuration_num <= 0:
-        print "wrong args"
-        raise SystemExit
-    if set_num is 1:
-        X_train, T_train, X_validation, T_validation, X_test, T_test = get_splitted_data()
-    if set_num is 2:  # TODO fix CIFAR-10
-        X_train, T_train, X_validation, T_validation, X_test, T_test = load_cifar()
-    if set_num is 3:
-        X_validation, X_train, T_validation, T_train, X_test, T_test = scikit()
 
-    hidden_neurons_1 = 20  # Number of neurons in the first hidden-layer
-    hidden_neurons_2 = 20  # Number of neurons in the second hidden-layer
-    # Create the model
-    layers = []  # Define a list of layers
-    # Add first hidden layer
-
-    layers.append(LinearLayer(X_train.shape[1], hidden_neurons_1))
-    layers.append(LogisticLayer())
-    # Add second hidden layer
-    layers.append(LinearLayer(hidden_neurons_1, hidden_neurons_2))
-    layers.append(LogisticLayer())
-    # Add output layer
-    layers.append(LinearLayer(hidden_neurons_2, T_train.shape[1]))
-    layers.append(SoftmaxOutputLayer())
-
-    # create batches
-    # approx 25 samples per batch
-    batch_size = 25
-    # number of batched
-    nb_of_batches = X_train.shape[0]
-    XT_batches = zip(
-        np.array_split(X_train, nb_of_batches, axis=0),
-        np.array_split(T_train, nb_of_batches, axis=0)
-    )
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    # train the network
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    # Perform backpropagation
-
-    # initalize some lists to store the cost for future analysis
-    minibatch_costs = []
-    training_costs = []
-    validation_costs = []
-
-    max_nb_of_iterations = 300  # Train for a maximum of 300 iterations
-    learning_rate = 0.04  # Gradient descent learning rate
-
-    # Train for the maximum number of iterations
-    for iteration in range(max_nb_of_iterations):
-        # print "XT_batches", XT_batches
-        for X, T in XT_batches:  # For each minibatch sub-iteration
-            activations = forward_step(X, layers)  # Get the activations
-            minibatch_cost = layers[-1].get_cost(activations[-1], T)  # Get cost
-            minibatch_costs.append(minibatch_cost)
-            param_grads = backward_step(activations, T, layers)  # Get the gradients
-            update_params(layers, param_grads, learning_rate)  # Update the parameters
-        # Get full training cost for future analysis (plots)
-        activations = forward_step(X_train, layers)
-        train_cost = layers[-1].get_cost(activations[-1], T_train)
-        training_costs.append(train_cost)
-        # Get full validation cost
-        activations = forward_step(X_validation, layers)
-        validation_cost = layers[-1].get_cost(activations[-1], T_validation)
-        validation_costs.append(validation_cost)
-        if len(validation_costs) > 3:
-            # Stop training if the cost on the validation set doesn't decrease
-            #  for 3 iterations
-            if validation_costs[-1] >= validation_costs[-2] >= validation_costs[-3]:
-                break
-
-    nb_of_iterations = iteration + 1  # The number of iterations that have been executed
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    # plot the network performance
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    # Plot the minibatch, full training set, and validation costs
-    minibatch_x_inds = np.linspace(0, nb_of_iterations, num=nb_of_iterations * nb_of_batches)
-    iteration_x_inds = np.linspace(1, nb_of_iterations, num=nb_of_iterations)
-    # Plot the cost over the iterations
-    plt.plot(minibatch_x_inds, minibatch_costs, 'k-', linewidth=0.5, label='cost minibatches')
-    plt.plot(iteration_x_inds, training_costs, 'r-', linewidth=2, label='cost full training set')
-    plt.plot(iteration_x_inds, validation_costs, 'b-', linewidth=3, label='cost validation set')
-    # Add labels to the plot
-    plt.xlabel('iteration')
-    plt.ylabel('$\\xi$', fontsize=15)
-    plt.title('Decrease of cost over backprop iteration')
-    plt.legend()
-    x1, x2, y1, y2 = plt.axis()
-    plt.axis((0, nb_of_iterations, 0, 2.5))
-    plt.grid()
-    plt.show()
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    # Get results of test data
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    y_true = np.argmax(T_test, axis=1)  # Get the target outputs
-    activations = forward_step(X_test, layers)  # Get activation of test samples
-    y_pred = np.argmax(activations[-1], axis=1)  # Get the predictions made by the network
-    test_accuracy = metrics.accuracy_score(y_true, y_pred)  # Test set accuracy
-    print('The accuracy on the test set is {:.2f}'.format(test_accuracy))
+        run = Run(set_num, configuration_num)
+        run.learn()
