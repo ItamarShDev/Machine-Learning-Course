@@ -54,7 +54,8 @@ class Learner:
 
     def init_cnn(self):
         """init CNN network"""
-        pass
+        from cnn import Cnn
+        cnn = Cnn()
 
     def init_alex_net(self):
         """init AlexNet network"""
