@@ -1,7 +1,11 @@
 #README
 > this repository is a product of a Machine Learning course in JCE Azrieli College of Engineering in Jerusalem
-> The course is led by (soon to be Dr.) Assaf Spanier 
+
+> The course is led by (soon to be Dr.) ```Assaf Spanier``` 
 > www.jce.ac.il
+
+## Status
+In progress, only skeleton right now
 
 ## The App
 This application is a basic implementation of a machine learning system
