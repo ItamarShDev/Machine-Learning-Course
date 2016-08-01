@@ -59,4 +59,5 @@ class Learner:
 
     def init_alex_net(self):
         """init AlexNet network"""
-        pass
+        from myalexnet import AlexNet
+        an = AlexNet()
