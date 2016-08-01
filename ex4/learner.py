@@ -46,7 +46,9 @@ class Learner:
 
     def not_mnist(self):
         """init not mnist"""
-        pass
+        # according to Tensor flow site
+        from tensorflow.examples.tutorials.mnist import input_data
+        mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 
     def set_configuration(self):
         """sets the selected configuration"""
@@ -59,4 +61,6 @@ class Learner:
 
     def init_alex_net(self):
         """init AlexNet network"""
-        pass
+        from myalexnet import AlexNet
+        an = AlexNet()
+
